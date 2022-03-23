@@ -1,4 +1,4 @@
-package dev.netho.jupiter;
+package dev.netho.jupiter.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

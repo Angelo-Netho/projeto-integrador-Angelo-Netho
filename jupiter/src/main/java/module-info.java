@@ -5,4 +5,6 @@ module dev.netho.jupiter {
 
     opens dev.netho.jupiter to javafx.fxml;
     exports dev.netho.jupiter;
+    exports dev.netho.jupiter.controller;
+    opens dev.netho.jupiter.controller to javafx.fxml;
 }
