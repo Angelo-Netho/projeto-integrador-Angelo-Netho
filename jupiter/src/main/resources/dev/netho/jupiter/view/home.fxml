@@ -6,9 +6,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="dev.netho.jupiter.controller.Login"
+            fx:controller="dev.netho.jupiter.controller.Home"
             prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+    <center>
+        <StackPane fx:id="centralPanel"/>
+        <Button text="teste"/>
+    </center>
+
+
+
+</BorderPane>

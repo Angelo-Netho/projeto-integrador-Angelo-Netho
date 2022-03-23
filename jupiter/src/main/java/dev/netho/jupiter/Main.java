@@ -1,6 +1,6 @@
 package dev.netho.jupiter;
 
-import dev.netho.jupiter.controller.Login;
+import dev.netho.jupiter.controller.Home;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +11,7 @@ import javafx.util.Callback;
 public class Main extends Application {
     @Override
     public void start(Stage stage) {
-        Scene scene = new Scene(loadTela("view/login.fxml", o-> new Login()));
+        Scene scene = new Scene(loadTela("view/home.fxml", o-> new Home()));
         stage.setTitle("Jupiter");
         stage.setScene(scene);
         stage.show();
