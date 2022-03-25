@@ -16,7 +16,7 @@ public class Home {
     }
 
     private void loadLogin() {
-        loadView(centralPanel, "view/login.fxml", aClass -> new Login());
+        loadView(centralPanel, "/dev/netho/fxml/login.fxml", aClass -> new Login());
 
     }
 

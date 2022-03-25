@@ -11,7 +11,7 @@ import javafx.util.Callback;
 public class Main extends Application {
     @Override
     public void start(Stage stage) {
-        Scene scene = new Scene(loadTela("view/home.fxml", o-> new Home()));
+        Scene scene = new Scene(loadTela("/dev/netho/fxml/home.fxml", o-> new Home()));
         stage.setTitle("Jupiter");
         stage.setScene(scene);
         stage.show();
