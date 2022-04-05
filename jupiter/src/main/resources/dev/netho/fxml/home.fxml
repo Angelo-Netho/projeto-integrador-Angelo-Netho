@@ -3,16 +3,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.shape.Rectangle?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="dev.netho.jupiter.controller.Home"
-            prefHeight="400.0" prefWidth="600.0">
+            stylesheets="@../style/style-default.css"
+            prefHeight="600" prefWidth="1024">
+
+
 
     <center>
         <StackPane fx:id="centralPanel">
-            <Label text="Home page"/>
+            <Label text="Central page"/>
         </StackPane>
-
     </center>
 
 
