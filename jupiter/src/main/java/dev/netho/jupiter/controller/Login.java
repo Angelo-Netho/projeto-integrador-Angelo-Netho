@@ -23,4 +23,10 @@ public class Login {
 
     @FXML
     public Hyperlink hlHelp;
+
+    private void clear() {
+        tfEmail.setText("");
+        tfPassword.setText("");
+        cbRemember.setSelected(false);
+    }
 }
