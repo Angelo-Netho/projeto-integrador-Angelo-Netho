@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+@font-face {
+    -fx-font-family: 'Roboto', sans-serif;
+
+}
+
+.root {
+    -fx-background-color: white;
+}
+
+.label {
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 15px;
+    -fx-text-fill: dimgrey;
+}
+
+.label-header {
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 20px;
+    -fx-padding: 10;
+    -fx-font-weight: bold;
+    -fx-text-fill: dimgrey;
+}
+
+.text-field {
+    -fx-background-radius: 10px;
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-padding: 7px;
+    -fx-text-fill: black;
+    -fx-background-color: silver;
+}
+
+.button {
+    -fx-pref-width: 75px;
+    -fx-pref-height: 75px;
+    -fx-background-radius: 20px;
+    -fx-background-color: white;
+
+    -fx-border-color: silver;
+    -fx-border-radius: 20px;
+    -fx-cursor: hand;
+
+    -fx-background-image: url("../images/arrow_forward_black.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+.check-box {
+    -fx-padding: 0px 0px 10px 0px;
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 12px;
+    -fx-text-fill: dimgrey;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+
+.check-box:selected .box {
+    -fx-background-color: royalblue;
+}
+
+.hyperlink {
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-text-fill: dimgrey;
+    -fx-font-size: 10px;
+    -fx-padding: 20px;
+    -fx-font-weight: 900;
+}
+
