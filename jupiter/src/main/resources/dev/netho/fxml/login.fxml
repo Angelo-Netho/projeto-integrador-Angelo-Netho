@@ -25,10 +25,10 @@
     <Label text="Senha" labelFor="$tfPassword" GridPane.columnIndex="0" GridPane.rowIndex="3" />
     <PasswordField fx:id="tfPassword" GridPane.columnIndex="0" GridPane.rowIndex="4" />
 
-    <CheckBox text="Manter login" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+    <CheckBox fx:id="cbRemember" text="Lembrar meu email" GridPane.columnIndex="0" GridPane.rowIndex="5" />
 
-    <Button GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.halignment="CENTER"/>
+    <Button fx:id="btConfirm" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.halignment="CENTER"/>
 
-    <Hyperlink text="NÃO CONSEGUE FAZER LOGIN?" GridPane.columnIndex="0" GridPane.rowIndex="7" GridPane.halignment="CENTER"/>
+    <Hyperlink fx:id="hlHelp" text="NÃO CONSEGUE FAZER LOGIN?" GridPane.columnIndex="0" GridPane.rowIndex="7" GridPane.halignment="CENTER"/>
 
 </GridPane>
