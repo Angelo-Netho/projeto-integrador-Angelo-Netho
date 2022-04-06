@@ -46,6 +46,15 @@
     -fx-background-position: center;
 }
 
+.button:hover {
+    -fx-background-color: cornflowerblue;
+}
+
+.button:pressed {
+    -fx-background-color: royalblue;
+}
+
+
 .check-box {
     -fx-padding: 0px 0px 10px 0px;
     -fx-font-family: 'Roboto', sans-serif;
