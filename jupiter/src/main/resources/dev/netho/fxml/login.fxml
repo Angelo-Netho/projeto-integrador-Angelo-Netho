@@ -2,13 +2,13 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.geometry.Insets?>
+
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
+          fx:id="root"
           fx:controller="dev.netho.jupiter.controller.Login"
           stylesheets="@../style/style-default.css"
-          fx:id="root"
           prefHeight="200" prefWidth="224" alignment="CENTER" hgap="10" vgap="10">
 
     <padding>
@@ -25,9 +25,9 @@
     <Label text="Senha" labelFor="$tfPassword" GridPane.columnIndex="0" GridPane.rowIndex="3" />
     <PasswordField fx:id="tfPassword" GridPane.columnIndex="0" GridPane.rowIndex="4" />
 
-    <CheckBox fx:id="cbRemember" text="Lembrar meu email" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+    <CheckBox fx:id="cbRemember" text="Lembrar minha conta" GridPane.columnIndex="0" GridPane.rowIndex="5" />
 
-    <Button fx:id="btConfirm" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.halignment="CENTER"/>
+    <Button fx:id="btConfirm" onAction="#validateLogin" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.halignment="CENTER"/>
 
     <Hyperlink fx:id="hlHelp" text="NÃO CONSEGUE FAZER LOGIN?" GridPane.columnIndex="0" GridPane.rowIndex="7" GridPane.halignment="CENTER"/>
 
