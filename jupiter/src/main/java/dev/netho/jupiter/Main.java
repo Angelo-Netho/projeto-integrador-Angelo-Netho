@@ -1,6 +1,7 @@
 package dev.netho.jupiter;
 
 import dev.netho.jupiter.controller.Home;
+import dev.netho.jupiter.utils.MysqlBridge;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +10,9 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 public class Main extends Application {
+
+    MysqlBridge mysqlBridge = MysqlBridge.getInstance();
+
     @Override
     public void start(Stage stage) {
         Scene scene = new Scene(loadTela("/dev/netho/fxml/home.fxml", o-> new Home()));
