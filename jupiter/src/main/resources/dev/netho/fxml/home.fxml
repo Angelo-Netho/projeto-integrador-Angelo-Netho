@@ -5,11 +5,10 @@
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
+            fx:id="root"
             fx:controller="dev.netho.jupiter.controller.Home"
             stylesheets="@../style/style-default.css"
             prefHeight="600" prefWidth="1024">
-
-
 
     <center>
         <StackPane fx:id="centralPanel">

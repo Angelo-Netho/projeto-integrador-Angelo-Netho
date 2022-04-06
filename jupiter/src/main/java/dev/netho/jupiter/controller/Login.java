@@ -1,13 +1,13 @@
 package dev.netho.jupiter.controller;
 
+import dev.netho.jupiter.services.AuthService;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 
-public class Login {
+import java.util.Objects;
 
-    @FXML
-    public GridPane root;
+public class Login {
 
     @FXML
     public TextField tfEmail;
@@ -23,10 +23,34 @@ public class Login {
 
     @FXML
     public Hyperlink hlHelp;
+    public GridPane root;
 
-    private void clear() {
-        tfEmail.setText("");
-        tfPassword.setText("");
-        cbRemember.setSelected(false);
+    private AuthService authService;
+    private Home homeController;
+
+    public Login(AuthService authService, Home homeController) {
+        this.authService = authService;
+        this.homeController = homeController;
     }
+
+    @FXML
+    public void validateLogin() {
+
+        String email = tfEmail.getText();
+        String password = tfPassword.getText();
+
+        try{
+            authService.login(email, password);
+
+            if(authService.loggedIn()) {
+                homeController.update();
+            }
+
+        }catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+    }
+
+
 }

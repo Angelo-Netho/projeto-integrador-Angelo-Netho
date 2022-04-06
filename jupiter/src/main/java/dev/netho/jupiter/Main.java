@@ -1,6 +1,9 @@
 package dev.netho.jupiter;
 
 import dev.netho.jupiter.controller.Home;
+import dev.netho.jupiter.daos.JDBCAuthDAO;
+import dev.netho.jupiter.daos.interfaces.AuthDAO;
+import dev.netho.jupiter.services.AuthService;
 import dev.netho.jupiter.utils.MysqlBridge;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,9 +16,13 @@ public class Main extends Application {
 
     MysqlBridge mysqlBridge = MysqlBridge.getInstance();
 
+    AuthDAO authDAO = new JDBCAuthDAO();
+
+    AuthService authService = new AuthService(authDAO);
+
     @Override
     public void start(Stage stage) {
-        Scene scene = new Scene(loadTela("/dev/netho/fxml/home.fxml", o-> new Home()));
+        Scene scene = new Scene(loadTela("/dev/netho/fxml/home.fxml", o-> new Home(authService)));
         stage.setTitle("Jupiter");
         stage.setScene(scene);
         stage.show();
