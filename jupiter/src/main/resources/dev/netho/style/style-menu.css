@@ -53,11 +53,6 @@
     -fx-background-color: #3f3d4f;
 }
 
-.button:focused{
-    -fx-opacity: 1;
-    -fx-background-color: #00F763;
-}
-
 #btnMainPage {
     -fx-background-image: url("../images/round_home_white_24dp.png");
 }
