@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+@font-face {
+    -fx-font-family: 'Source Code Pro', sans-serif;
+}
+
+#navigationBar {
+    -fx-background-color: #383648;
+}
+
+#label-title {
+    -fx-font-family: 'Montserrat', sans-serif;
+    -fx-font-size: 28px;
+    -fx-font-weight: 600;
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 100px;
+}
+
+#label-description {
+    -fx-font-family: 'Source Sans Pro', sans-serif;
+    -fx-font-size: 10px;
+    -fx-font-weight: 600;
+    -fx-text-fill: rgba(255, 255, 255, 0.5);
+    -fx-text-alignment: center;
+}
+
+.button {
+    -fx-background-color: rgba(0, 247, 99, 0);
+    -fx-font-family: 'Source Sans Pro', sans-serif;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12.5;
+    -fx-alignment: baseline-left;
+    -fx-border-radius: 3px;
+    -fx-cursor: hand;
+    -fx-label-padding: 0 0 0 36;
+
+    -fx-pref-height: 40;
+    -fx-pref-width: 180;
+
+    -fx-background-size: 24;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 12 50%;
+
+    -fx-opacity: 0.5;
+
+}
+
+.button:hover{
+    -fx-opacity: 0.75;
+    -fx-background-color: #3f3d4f;
+}
+
+.button:focused{
+    -fx-opacity: 1;
+    -fx-background-color: #00F763;
+}
+
+#btnMainPage {
+    -fx-background-image: url("../images/round_home_white_24dp.png");
+}
+
+#btnDiary {
+    -fx-background-image: url("../images/round_sticky_note_2_white_24dp.png");
+}
+
+#btnProfile {
+    -fx-background-image: url("../images/round_account_circle_white_24dp.png");
+}
+
+#btnPreferences {
+    -fx-background-image: url("../images/round_settings_white_24dp.png");
+}
+
+#btnLogOut {
+    -fx-background-image: url("../images/round_logout_white_24dp.png");
+}
+
+#btnLogOut:hover {
+    -fx-opacity: 0.75;
+    -fx-background-color: #3f3d4f;
+    -fx-text-fill: coral;
+}
