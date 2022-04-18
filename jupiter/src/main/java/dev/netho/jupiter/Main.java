@@ -2,7 +2,15 @@ package dev.netho.jupiter;
 
 import dev.netho.jupiter.controller.Home;
 import dev.netho.jupiter.daos.AuthJDBC;
+import dev.netho.jupiter.daos.DiaryJDBC;
+import dev.netho.jupiter.daos.PatientJDBC;
+import dev.netho.jupiter.daos.PsychologistJDBC;
 import dev.netho.jupiter.daos.interfaces.AuthDAO;
+import dev.netho.jupiter.daos.interfaces.DiaryDAO;
+import dev.netho.jupiter.daos.interfaces.PatientDAO;
+import dev.netho.jupiter.daos.interfaces.PsychologistDAO;
+import dev.netho.jupiter.repositories.PatientRepository;
+import dev.netho.jupiter.repositories.PsychologistRepository;
 import dev.netho.jupiter.services.AuthService;
 import dev.netho.jupiter.utils.MysqlBridge;
 import javafx.application.Application;
@@ -17,8 +25,14 @@ public class Main extends Application {
     MysqlBridge mysqlBridge = MysqlBridge.getInstance();
 
     AuthDAO authDAO = new AuthJDBC(mysqlBridge);
+    PsychologistDAO psychologistDAO = new PsychologistJDBC(mysqlBridge);
+    PatientDAO patientDAO = new PatientJDBC(mysqlBridge);
+    DiaryDAO diaryDAO = new DiaryJDBC(mysqlBridge);
 
-    AuthService authService = new AuthService(authDAO);
+    PsychologistRepository psychologistRepository = new PsychologistRepository(psychologistDAO, patientDAO, diaryDAO);
+    PatientRepository patientRepository = new PatientRepository(patientDAO, diaryDAO);
+
+    AuthService authService = new AuthService(authDAO, patientRepository, psychologistRepository);
 
     @Override
     public void start(Stage stage) {
@@ -26,7 +40,7 @@ public class Main extends Application {
         //Disable Javafx text antialiasing to get font smoother
         System.setProperty("prism.lcdtext", "false");
 
-        Scene scene = new Scene(loadTela("/dev/netho/fxml/home.fxml", o-> new Home(authService)));
+        Scene scene = new Scene(loadTela("/dev/netho/fxml/home.fxml", o-> new Home(authService, patientRepository)));
         stage.setTitle("Jupiter");
         stage.setScene(scene);
         stage.setHeight(720);
