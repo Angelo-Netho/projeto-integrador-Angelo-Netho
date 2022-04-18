@@ -5,8 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 
-import java.util.Objects;
-
 public class Login {
 
     @FXML
@@ -47,7 +45,9 @@ public class Login {
             }
 
         }catch (Exception exception) {
-            exception.printStackTrace();
+            //mensagem de erro
+            System.out.println(exception.getMessage());
+            btConfirm.setStyle("-fx-background-color: red");
         }
 
     }
