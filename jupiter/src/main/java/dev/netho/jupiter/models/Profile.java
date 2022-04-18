@@ -1,28 +1,54 @@
 package dev.netho.jupiter.models;
 
+import java.time.LocalDate;
+
 public class Profile {
-    private int id;
-    private String email;
-    private String senha;
-    private boolean admin;
 
-    public Profile(int id, String email, boolean admin) {
+    private final int id;
+    private final String name;
+    private final String email;
+    private final String phone;
+    private final String gender;
+    private final LocalDate birthday;
+    public final String profilePicture;
+
+    public Profile(int id, String name, String email, String phone, String gender, LocalDate birthday, String profilePicture) {
         this.id = id;
+        this.name = name;
         this.email = email;
-        this.admin = admin;
-    }
+        this.phone = phone;
+        this.gender = gender;
+        this.birthday = birthday;
+        this.profilePicture = profilePicture;
 
-    public boolean isAdmin() {
-        return admin;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public int getId() {
         return id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
 
 }
