@@ -5,17 +5,17 @@ import java.util.ArrayList;
 
 public class Psychologist extends Profile{
 
-    private final String cpr;
+    private final String crp;
     private ArrayList<Patient> patients;
 
-    public Psychologist(int id, String name, String email, String phone, String gender, LocalDate birthday, String profilePicture, String cpr, ArrayList<Patient> patients) {
-        super(id, name, email, phone, gender, birthday, profilePicture);
-        this.cpr = cpr;
+    public Psychologist(int id, String name, String email, String phone, String gender, LocalDate birthday, LocalDate ingress, String profilePicture, String crp, ArrayList<Patient> patients) {
+        super(id, name, email, phone, gender, birthday, ingress, profilePicture);
+        this.crp = crp;
         this.patients = patients;
     }
 
-    public String getCpr() {
-        return cpr;
+    public String getCrp() {
+        return crp;
     }
 
     public ArrayList<Patient> getPatients() {

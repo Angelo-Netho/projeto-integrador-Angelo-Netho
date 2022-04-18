@@ -33,8 +33,8 @@ public class PatientRepository {
         return patient;
     }
 
-    public boolean patchPatient(int id, String name, String email, String phone, String gender, LocalDate birthday, String profilePicture) throws Exception{
-        Patient patient = new Patient(id, name, email, phone, gender, birthday, profilePicture, null);
+    public boolean patchPatient(int id, String name, String email, String phone, String gender, LocalDate birthday, LocalDate ingress, String profilePicture) throws Exception{
+        Patient patient = new Patient(id, name, email, phone, gender, birthday, ingress, profilePicture, null);
         return patientDAO.patchPatient(id, patient);
     }
 }

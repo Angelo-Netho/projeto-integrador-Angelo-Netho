@@ -132,9 +132,10 @@ public class PatientJDBC implements PatientDAO {
         String phone = resultSet.getString("phone");
         String gender = resultSet.getString("gender");
         LocalDate birthday = resultSet.getDate("birthday").toLocalDate();
+        LocalDate ingress = resultSet.getDate("created").toLocalDate();
         String profilePicture = resultSet.getString("profile_picture");
 
-        return new Patient(id, name, email, phone, gender, birthday, profilePicture, null);
+        return new Patient(id, name, email, phone, gender, birthday, ingress, profilePicture, null);
     }
 
 }

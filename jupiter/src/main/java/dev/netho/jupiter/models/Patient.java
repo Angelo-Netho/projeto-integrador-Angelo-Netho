@@ -7,8 +7,8 @@ public class Patient extends Profile{
 
     private ArrayList<Diary> diaries;
 
-    public Patient(int id, String name, String email, String phone, String gender, LocalDate birthday, String profilePicture, ArrayList<Diary> diaries) {
-        super(id, name, email, phone, gender, birthday, profilePicture);
+    public Patient(int id, String name, String email, String phone, String gender, LocalDate birthday, LocalDate ingress, String profilePicture, ArrayList<Diary> diaries) {
+        super(id, name, email, phone, gender, birthday, ingress, profilePicture);
         this.diaries = diaries;
     }
 

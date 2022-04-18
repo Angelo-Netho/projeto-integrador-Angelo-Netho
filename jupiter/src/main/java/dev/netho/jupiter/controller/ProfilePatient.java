@@ -87,7 +87,7 @@ public class ProfilePatient {
         try{
             boolean result = true;
 
-            result = patientRepository.patchPatient(patient.getId(), name, email, phone, gender, date, image);
+            result = patientRepository.patchPatient(patient.getId(), name, email, phone, gender, date, null, image);
 
             if(result) {
                 //coisa pika boa
@@ -122,8 +122,8 @@ public class ProfilePatient {
         dpBirthday.setValue(patient.getBirthday());
         tfImage.setText(patient.getProfilePicture());
 
-        String month = patient.getBirthday().getMonth().getDisplayName(TextStyle.FULL_STANDALONE, Locale.ROOT);
-        lblJoinDate.setText("Ingressou em " + month + " de " + patient.getBirthday().getYear());
+        String month = patient.getIngress().getMonth().getDisplayName(TextStyle.FULL_STANDALONE, Locale.ROOT);
+        lblJoinDate.setText("Ingressou em " + month + " de " + patient.getIngress().getYear());
 
         Image image = new Image(patient.getProfilePicture());
 
