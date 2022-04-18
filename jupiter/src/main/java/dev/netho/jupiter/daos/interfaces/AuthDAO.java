@@ -1,8 +1,8 @@
 package dev.netho.jupiter.daos.interfaces;
 
-import dev.netho.jupiter.models.Profile;
+import java.sql.SQLException;
 
 public interface AuthDAO {
-    Profile login(String email, String password) throws Exception;
-    boolean register(String email, String password) throws Exception;
+    boolean authenticatePatient(String email, String password) throws SQLException;
+    boolean authenticatePsychologist(String email, String password) throws SQLException;
 }
