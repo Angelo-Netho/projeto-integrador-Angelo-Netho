@@ -19,15 +19,15 @@
            GridPane.columnIndex="0" GridPane.rowIndex="0"
            GridPane.halignment="CENTER" styleClass="label-header"/>
 
-    <Label text="Email" labelFor="$tfEmail" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <Label text="Email" labelFor="$tfEmail"  id="label-text-field" GridPane.columnIndex="0" GridPane.rowIndex="1" />
     <TextField fx:id="tfEmail" GridPane.columnIndex="0" GridPane.rowIndex="2" />
 
-    <Label text="Senha" labelFor="$tfPassword" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+    <Label text="Senha" labelFor="$tfPassword" id="label-text-field" GridPane.columnIndex="0" GridPane.rowIndex="3" />
     <PasswordField fx:id="tfPassword" GridPane.columnIndex="0" GridPane.rowIndex="4" />
 
     <CheckBox fx:id="cbRemember" text="Lembrar minha conta" GridPane.columnIndex="0" GridPane.rowIndex="5" />
 
-    <Button fx:id="btConfirm" onAction="#validateLogin" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.halignment="CENTER"/>
+    <Button fx:id="btConfirm" id="login-button" onAction="#validateLogin" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.halignment="CENTER"/>
 
     <Hyperlink fx:id="hlHelp" text="NÃO CONSEGUE FAZER LOGIN?" GridPane.columnIndex="0" GridPane.rowIndex="7" GridPane.halignment="CENTER"/>
 
