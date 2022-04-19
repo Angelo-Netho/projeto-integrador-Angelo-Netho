@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class Diary {
 
-    private final int id;
+    private int id;
     private final int moodLevel;
     private final String content;
     private final LocalDateTime receive;
@@ -25,6 +25,10 @@ public class Diary {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getMoodLevel() {
@@ -48,4 +52,5 @@ public class Diary {
                 ", receive=" + receive +
                 '}';
     }
+
 }
