@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public interface PatientDAO {
 
-    boolean postPatient(int idPsychologist, Patient patient) throws SQLException;
+    boolean postPatient(int idPsychologist, Patient patient, String password) throws SQLException;
     Patient getPatient(int id) throws SQLException;
     Patient getPatient(String email) throws SQLException;
     boolean patchPatient(int id, Patient patient) throws SQLException;

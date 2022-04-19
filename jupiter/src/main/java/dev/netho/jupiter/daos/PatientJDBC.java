@@ -17,26 +17,51 @@ public class PatientJDBC implements PatientDAO {
     }
 
     @Override
-    public boolean postPatient(int idPsychologist, Patient patient) throws SQLException {
-        return false;
+    public boolean postPatient(int idPsychologist, Patient patient, String password) throws SQLException {
+        Connection connection = mysqlBridge.getConnection();
+
+        String SQL = "CALL post_patient(?, ?, ?, ?, ?, ?, ?, ?)";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+        preparedStatement.setInt(1, idPsychologist);
+        preparedStatement.setString(2, patient.getName());
+        preparedStatement.setString(3, patient.getEmail());
+        preparedStatement.setString(4, password);
+        preparedStatement.setDate(5, Date.valueOf(patient.getBirthday()));
+        preparedStatement.setString(6, patient.getPhone());
+        preparedStatement.setString(7, patient.getGender());
+        preparedStatement.setString(8, patient.getProfilePicture());
+
+       ResultSet resultSet = preparedStatement.getGeneratedKeys();
+
+       resultSet.next();
+       int id = resultSet.getInt(1);
+
+       resultSet.close();
+       preparedStatement.close();
+       connection.close();
+
+        patient.setId(id);
+
+       return true;
     }
 
     @Override
     public Patient getPatient(int id) throws SQLException {
+        Patient patient = null;
+
         Connection connection = mysqlBridge.getConnection();
 
-        String SQL = "SELECT * FROM patient WHERE patient_id=?";
+        String SQL = "CALL get_patient_by_id(?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(SQL);
         preparedStatement.setInt(1, id);
 
         ResultSet resultSet = preparedStatement.executeQuery();
 
-        if(!resultSet.next()) {
-            return null;
+        while(resultSet.next()) {
+            patient = buildPatient(resultSet);
         }
-
-        Patient patient = generatePatient(resultSet);
 
         resultSet.close();
         preparedStatement.close();
@@ -47,20 +72,20 @@ public class PatientJDBC implements PatientDAO {
 
     @Override
     public Patient getPatient(String email) throws SQLException {
+        Patient patient = null;
+
         Connection connection = mysqlBridge.getConnection();
 
-        String SQL = "SELECT * FROM patient WHERE email=?";
+        String SQL = "CALL get_patient_by_email(?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(SQL);
         preparedStatement.setString(1, email);
 
         ResultSet resultSet = preparedStatement.executeQuery();
 
-        if(!resultSet.next()) {
-            return null;
+        while(resultSet.next()) {
+            patient = buildPatient(resultSet);
         }
-
-        Patient patient = generatePatient(resultSet);
 
         resultSet.close();
         preparedStatement.close();
@@ -73,7 +98,7 @@ public class PatientJDBC implements PatientDAO {
     public boolean patchPatient(int id, Patient patient) throws SQLException {
         Connection connection = mysqlBridge.getConnection();
 
-        String SQL = "CALL update_patient(?,?,?,?,?,?,?)";
+        String SQL = "CALL patch_patient(?,?,?,?,?,?,?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
@@ -95,7 +120,20 @@ public class PatientJDBC implements PatientDAO {
 
     @Override
     public boolean deletePatient(int id) throws SQLException {
-        return false;
+        Connection connection = mysqlBridge.getConnection();
+
+        String SQL = "CALL delete_patient(?)";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+        preparedStatement.setInt(1, id);
+
+        int ret = preparedStatement.executeUpdate();
+
+        preparedStatement.close();
+        connection.close();
+
+        return ret==1;
     }
 
     @Override
@@ -105,7 +143,7 @@ public class PatientJDBC implements PatientDAO {
 
         Connection connection = mysqlBridge.getConnection();
 
-        String SQL = "SELECT * FROM patient WHERE psychologist_id = ?";
+        String SQL = "CALL load_psychologist_patients(?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(SQL);
         preparedStatement.setInt(1, idPsychologist);
@@ -113,7 +151,7 @@ public class PatientJDBC implements PatientDAO {
         ResultSet resultSet = preparedStatement.executeQuery();
 
         while(resultSet.next()) {
-            Patient patient = generatePatient(resultSet);
+            Patient patient = buildPatient(resultSet);
             patients.add(patient);
         }
 
@@ -124,7 +162,7 @@ public class PatientJDBC implements PatientDAO {
         return patients;
     }
 
-    private Patient generatePatient(ResultSet resultSet) throws SQLException {
+    private Patient buildPatient(ResultSet resultSet) throws SQLException {
 
         int id = resultSet.getInt("patient_id");
         String name = resultSet.getString("name");

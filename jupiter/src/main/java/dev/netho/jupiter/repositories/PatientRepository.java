@@ -21,7 +21,7 @@ public class PatientRepository {
     public boolean postPatient(int idPsychologist, String name, String email, String password, LocalDate birthday, String phone, String gender, String profilePicture) throws SQLException {
         Patient patient = new Patient(-1, name, email, phone, gender, birthday, null, profilePicture, null);
 
-        return patientDAO.postPatient(idPsychologist, patient);
+        return patientDAO.postPatient(idPsychologist, patient, password);
     }
 
     public Patient getPatient(int id) throws Exception {
@@ -44,4 +44,5 @@ public class PatientRepository {
     public boolean deletePatient(int id) throws SQLException{
         return patientDAO.deletePatient(id);
     }
+
 }
