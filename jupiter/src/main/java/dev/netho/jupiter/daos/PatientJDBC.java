@@ -41,7 +41,7 @@ public class PatientJDBC implements PatientDAO {
        preparedStatement.close();
        connection.close();
 
-        patient.setId(id);
+       patient.setId(id);
 
        return true;
     }
