@@ -5,6 +5,7 @@ import dev.netho.jupiter.daos.interfaces.DiaryDAO;
 import dev.netho.jupiter.daos.interfaces.PatientDAO;
 import dev.netho.jupiter.models.Patient;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class PatientRepository {
@@ -17,8 +18,10 @@ public class PatientRepository {
         this.diaryDAO = diaryDAO;
     }
 
-    public boolean postPatient() {
-        return false;
+    public boolean postPatient(int idPsychologist, String name, String email, String password, LocalDate birthday, String phone, String gender, String profilePicture) throws SQLException {
+        Patient patient = new Patient(-1, name, email, phone, gender, birthday, null, profilePicture, null);
+
+        return patientDAO.postPatient(idPsychologist, patient);
     }
 
     public Patient getPatient(int id) throws Exception {
@@ -36,5 +39,9 @@ public class PatientRepository {
     public boolean patchPatient(int id, String name, String email, String phone, String gender, LocalDate birthday, LocalDate ingress, String profilePicture) throws Exception{
         Patient patient = new Patient(id, name, email, phone, gender, birthday, ingress, profilePicture, null);
         return patientDAO.patchPatient(id, patient);
+    }
+
+    public boolean deletePatient(int id) throws SQLException{
+        return patientDAO.deletePatient(id);
     }
 }
