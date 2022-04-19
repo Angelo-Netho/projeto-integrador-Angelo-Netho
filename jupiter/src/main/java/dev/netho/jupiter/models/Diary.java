@@ -5,23 +5,30 @@ import java.time.LocalDateTime;
 public class Diary {
 
     private final int id;
-    private final int humorLevel;
+    private final int moodLevel;
     private final String content;
     private final LocalDateTime receive;
 
     public Diary(int id, int humorLevel, String content, LocalDateTime receive) {
         this.id = id;
-        this.humorLevel = humorLevel;
+        this.moodLevel = humorLevel;
         this.content = content;
         this.receive = receive;
+    }
+
+    public Diary(int moodLevel, String content) {
+        this.id = -1;
+        this.moodLevel = moodLevel;
+        this.content = content;
+        this.receive = null;
     }
 
     public int getId() {
         return id;
     }
 
-    public int getHumorLevel() {
-        return humorLevel;
+    public int getMoodLevel() {
+        return moodLevel;
     }
 
     public String getContent() {
@@ -36,7 +43,7 @@ public class Diary {
     public String toString() {
         return "Diary{" +
                 "id=" + id +
-                ", humorLevel=" + humorLevel +
+                ", humorLevel=" + moodLevel +
                 ", content='" + content + '\'' +
                 ", receive=" + receive +
                 '}';
