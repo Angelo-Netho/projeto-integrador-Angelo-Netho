@@ -29,18 +29,12 @@ public class DiaryJDBC implements DiaryDAO {
         preparedStatement.setString(2, diary.getContent());
         preparedStatement.setInt(3, diary.getMoodLevel());
 
-        ResultSet resultSet = preparedStatement.getGeneratedKeys();
+        int ret = preparedStatement.executeUpdate();
 
-        resultSet.next();
-        int id = resultSet.getInt(1);
-
-        resultSet.close();
         preparedStatement.close();
         connection.close();
 
-        diary.setId(id);
-
-        return true;
+        return ret==1;
     }
 
     @Override

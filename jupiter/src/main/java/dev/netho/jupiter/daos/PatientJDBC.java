@@ -32,18 +32,12 @@ public class PatientJDBC implements PatientDAO {
         preparedStatement.setString(7, patient.getGender());
         preparedStatement.setString(8, patient.getProfilePicture());
 
-       ResultSet resultSet = preparedStatement.getGeneratedKeys();
+        int ret = preparedStatement.executeUpdate();
 
-       resultSet.next();
-       int id = resultSet.getInt(1);
+        preparedStatement.close();
+        connection.close();
 
-       resultSet.close();
-       preparedStatement.close();
-       connection.close();
-
-       patient.setId(id);
-
-       return true;
+        return ret==1;
     }
 
     @Override
