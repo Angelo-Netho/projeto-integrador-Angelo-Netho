@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.shape.Circle?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="dev.netho.jupiter.controller.DashboardPatient"
+            stylesheets="@../style/style-default.css"
+            prefHeight="720.0" prefWidth="1280.0">
+
+    <top>
+        <HBox >
+            <padding>
+                <Insets topRightBottomLeft="8.0"/>
+            </padding>
+            <Region HBox.Hgrow="ALWAYS" />
+            <Circle fx:id="cImage" radius="25" onMouseClicked="#loadProfileEditor" id="profilePic"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox>
+            <padding>
+                <Insets topRightBottomLeft="14.0"/>
+            </padding>
+            <Label text="Destaques" id="label-dashboard"/>
+            <HBox>
+                <Button text="Como você está se sentindo?" fx:id="btnWriteDiary" onAction="#loadDiaryEditor"/>
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>
