@@ -16,8 +16,6 @@ import java.util.Locale;
 
 public class ProfilePatient {
 
-    private Patient patient;
-
     @FXML
     public TextField tfName;
 
@@ -41,6 +39,8 @@ public class ProfilePatient {
 
     @FXML
     public Label lblJoinDate;
+
+    private Patient patient;
 
     private final PatientRepository patientRepository;
 
@@ -85,7 +85,7 @@ public class ProfilePatient {
         }
 
         try{
-            boolean result = true;
+            boolean result;
 
             result = patientRepository.patchPatient(patient.getId(), name, email, phone, gender, date, null, image);
 
@@ -122,13 +122,19 @@ public class ProfilePatient {
         dpBirthday.setValue(patient.getBirthday());
         tfImage.setText(patient.getProfilePicture());
 
-        String month = patient.getIngress().getMonth().getDisplayName(TextStyle.FULL_STANDALONE, Locale.ROOT);
+        Locale BRAZIL = new Locale("pt", "BR");
+
+        String month = patient.getIngress().getMonth().getDisplayName(TextStyle.FULL_STANDALONE, BRAZIL);
         lblJoinDate.setText("Ingressou em " + month + " de " + patient.getIngress().getYear());
 
-        Image image = new Image(patient.getProfilePicture());
+        if(!patient.getProfilePicture().isBlank()) {
+            Image image = new Image(patient.getProfilePicture());
 
-        if(!image.isError()) {
-            cImage.setFill(new ImagePattern(image));
+            if(!image.isError()) {
+                cImage.setFill(new ImagePattern(image));
+            }
         }
+
+
     }
 }
