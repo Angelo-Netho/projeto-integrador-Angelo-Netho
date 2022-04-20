@@ -9,6 +9,7 @@ import dev.netho.jupiter.daos.interfaces.AuthDAO;
 import dev.netho.jupiter.daos.interfaces.DiaryDAO;
 import dev.netho.jupiter.daos.interfaces.PatientDAO;
 import dev.netho.jupiter.daos.interfaces.PsychologistDAO;
+import dev.netho.jupiter.repositories.DiaryRepository;
 import dev.netho.jupiter.repositories.PatientRepository;
 import dev.netho.jupiter.repositories.PsychologistRepository;
 import dev.netho.jupiter.services.AuthService;
@@ -31,6 +32,7 @@ public class Main extends Application {
 
     PsychologistRepository psychologistRepository = new PsychologistRepository(psychologistDAO, patientDAO, diaryDAO);
     PatientRepository patientRepository = new PatientRepository(patientDAO, diaryDAO);
+    DiaryRepository diaryRepository = new DiaryRepository(diaryDAO);
 
     AuthService authService = new AuthService(authDAO, patientRepository, psychologistRepository);
 
@@ -40,7 +42,7 @@ public class Main extends Application {
         //Disable Javafx text antialiasing to get font smoother
         System.setProperty("prism.lcdtext", "false");
 
-        Scene scene = new Scene(loadTela("/dev/netho/fxml/home.fxml", o-> new Home(authService, patientRepository)));
+        Scene scene = new Scene(loadScreen("/dev/netho/fxml/home.fxml", o-> new Home(authService, patientRepository, psychologistRepository, diaryRepository)));
         stage.setTitle("Jupiter");
         stage.setScene(scene);
         stage.setHeight(720);
@@ -50,7 +52,7 @@ public class Main extends Application {
 
     }
 
-    public static Parent loadTela(String fxml, Callback controller){
+    public static Parent loadScreen(String fxml, Callback controller){
         Parent root = null;
         try{
             FXMLLoader loader = new FXMLLoader();
