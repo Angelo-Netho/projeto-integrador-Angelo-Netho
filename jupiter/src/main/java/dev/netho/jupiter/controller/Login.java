@@ -23,8 +23,8 @@ public class Login {
     public Hyperlink hlHelp;
     public GridPane root;
 
-    private AuthService authService;
-    private Home homeController;
+    private final AuthService authService;
+    private final Home homeController;
 
     public Login(AuthService authService, Home homeController) {
         this.authService = authService;
