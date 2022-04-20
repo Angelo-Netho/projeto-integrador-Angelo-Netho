@@ -61,4 +61,17 @@ public class Profile {
         return profilePicture;
     }
 
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", gender='" + gender + '\'' +
+                ", birthday=" + birthday +
+                ", ingress=" + ingress +
+                ", profilePicture='" + profilePicture + '\'' +
+                '}';
+    }
 }

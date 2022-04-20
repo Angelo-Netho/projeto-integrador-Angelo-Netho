@@ -45,12 +45,48 @@ public class Diary {
 
     @Override
     public String toString() {
-        return "Diary{" +
-                "id=" + id +
-                ", humorLevel=" + moodLevel +
-                ", content='" + content + '\'' +
-                ", receive=" + receive +
-                '}';
+
+        return "Há " + generateTime();
+    }
+
+    private String generateTime() {
+        //Bored
+
+        LocalDateTime now = LocalDateTime.now();
+
+        if(now.getDayOfMonth() - getReceive().getDayOfMonth() >= 7) {
+            //Calculate in weeks
+            int weeks =  (now.getDayOfYear() - getReceive().getDayOfYear())/7;
+            if(weeks == 1) {
+                return weeks + " semana atrás";
+            }
+            return weeks + " semanas atrás";
+
+        }else if(now.getDayOfYear() - getReceive().getDayOfYear() > 0) {
+
+            int days = now.getDayOfYear() - getReceive().getDayOfYear();
+            if(days == 1) {
+                return days + " dia atrás";
+            }
+            return days + " dias atrás";
+
+        } else if(now.getHour() - getReceive().getHour() > 0) {
+            int hours = now.getHour() - getReceive().getHour();
+            if(hours == 1) {
+                return hours + " hora atrás";
+            }
+            return hours + " horas atrás";
+
+        }else if(now.getMinute() - getReceive().getMinute() > 0) {
+            int minutes = now.getMinute() - getReceive().getMinute();
+            if(minutes == 1) {
+                return minutes + " minuto atrás";
+            }
+            return minutes + " minutos atrás";
+        }else {
+            int seconds = now.getSecond() - getReceive().getSecond();
+            return seconds + " segundos atrás";
+        }
     }
 
 }

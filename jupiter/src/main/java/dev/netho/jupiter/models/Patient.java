@@ -20,5 +20,8 @@ public class Patient extends Profile{
         this.diaries = diaries;
     }
 
-
+    @Override
+    public String toString() {
+        return getName();
+    }
 }
