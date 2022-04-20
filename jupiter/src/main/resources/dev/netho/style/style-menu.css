@@ -62,6 +62,10 @@
     -fx-background-image: url("../images/round_sticky_note_2_white_24dp.png");
 }
 
+#btnPatients {
+    -fx-background-image: url("../images/round_people_white_24dp.png");
+}
+
 #btnProfile {
     -fx-background-image: url("../images/round_account_circle_white_24dp.png");
 }
