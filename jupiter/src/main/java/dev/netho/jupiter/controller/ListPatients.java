@@ -4,17 +4,13 @@ import dev.netho.jupiter.models.Patient;
 import dev.netho.jupiter.models.Psychologist;
 import dev.netho.jupiter.repositories.PatientRepository;
 import dev.netho.jupiter.repositories.PsychologistRepository;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
 
 public class ListPatients {
