@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<?import javafx.geometry.Insets?>
+<BorderPane  xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="dev.netho.jupiter.controller.HomePsychologist"
             prefHeight="400.0" prefWidth="600.0">
 
-    <Label fx:id="lblWelcome" text="Bem vindo admin"/>
+    <left>
 
-</AnchorPane>
+        <VBox id="navigationBar" prefWidth="200.0" stylesheets="@../style/style-menu.css">
+            <padding>
+                <Insets left="7.5"/>
+            </padding>
+
+            <Label text="Jupiter." id="label-title"/>
+
+            <VBox spacing="5" >
+                <Label text="Ferramentas do psicólogo" id="label-description"/>
+                <Button text="Página Principal" onAction="#loadDashboard" fx:id="btnMainPage"/>
+                <Button text="Pacientes" onAction="#loadPatients" fx:id="btnPatients"/>
+                <Button text="Meu Perfil" onAction="#loadProfile" fx:id="btnProfile"/>
+                <Button text="Preferências" onAction="#loadPreferences" fx:id="btnPreferences"/>
+
+            </VBox>
+            <Region VBox.vgrow="ALWAYS" />
+            <Button id="btnLogOut" onAction="#logOut" text="Encerrar Sessão"/>
+        </VBox>
+
+    </left>
+    <center>
+        <StackPane fx:id="centralPanel">
+
+        </StackPane>
+    </center>
+
+</BorderPane>
