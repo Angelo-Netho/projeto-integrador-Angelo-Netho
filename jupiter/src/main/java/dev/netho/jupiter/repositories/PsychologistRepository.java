@@ -3,6 +3,7 @@ package dev.netho.jupiter.repositories;
 import dev.netho.jupiter.daos.interfaces.DiaryDAO;
 import dev.netho.jupiter.daos.interfaces.PatientDAO;
 import dev.netho.jupiter.daos.interfaces.PsychologistDAO;
+import dev.netho.jupiter.models.Diary;
 import dev.netho.jupiter.models.Patient;
 import dev.netho.jupiter.models.Psychologist;
 
@@ -24,12 +25,22 @@ public class PsychologistRepository {
 
     public Psychologist getPsychologist(int id) throws SQLException {
         Psychologist psychologist = psychologistDAO.getPsychologist(id);
+        psychologist.setPatients(patientDAO.loadPsychologistPatients(psychologist.getId()));
+
+        for (Patient patient : psychologist.getPatients()){
+            patient.setDiaries(diaryDAO.loadPatientDiaries(patient.getId()));
+        }
 
         return buildPsychologist(psychologist);
     }
 
     public Psychologist getPsychologist(String email) throws SQLException {
         Psychologist psychologist = psychologistDAO.getPsychologist(email);
+        psychologist.setPatients(patientDAO.loadPsychologistPatients(psychologist.getId()));
+
+        for (Patient patient : psychologist.getPatients()){
+            patient.setDiaries(diaryDAO.loadPatientDiaries(patient.getId()));
+        }
 
         return buildPsychologist(psychologist);
     }
