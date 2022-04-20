@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="dev.netho.jupiter.controller.ListDiaries"
+      prefHeight="400.0" prefWidth="600.0">
+
+    <padding>
+        <Insets topRightBottomLeft="18.0"/>
+    </padding>
+
+    <Label text="Mostrando registros de Paciente" fx:id="lblName"/>
+
+    <ListView fx:id="lvDiaries" onMouseClicked="#loadDiary"/>
+</VBox>
