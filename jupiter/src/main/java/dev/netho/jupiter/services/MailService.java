@@ -9,18 +9,10 @@ import java.util.Random;
 
 public class MailService {
 
-    private String generateTempPassword() {
+    public void sendNotificationEmail(String psychologistAddress, String fileName, String name) {
 
-        Random random = new Random();
-        int number = random.nextInt(999999);
-
-        return String.format("%06d", number);
-    }
-
-    public void sendRecoveryMail(String recoveryAddress) {
-
-        String username = "jupiter.recovery@gmail.com";
-        String password = "Salada123!";
+        String username = "";
+        String password = "";
         String host = "smtp.gmail.com";
         String port = "587";
 
@@ -40,26 +32,25 @@ public class MailService {
 
             message.setFrom(new InternetAddress(username));
 
-            Address[] toUser = InternetAddress.parse(recoveryAddress);
+            Address[] toUser = InternetAddress.parse(psychologistAddress);
 
             message.setRecipients(Message.RecipientType.TO, toUser);
 
-            message.setSubject("Recuperação de conta");
+            message.setSubject("Relatório pacientes");
 
-            String tempPassword = generateTempPassword();
+            message.setText("Seu relatório está pronto," + name + ".");
 
-            message.setText("Sua senha temporária é: " + tempPassword +
-                    "\nEstá senha é valida durante 10 minutos.");
+            message.setFileName(fileName);
 
             Transport transport = session.getTransport("smtp");
             transport.connect(username, password);
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
 
-            System.out.println("Recovery password sent to " + recoveryAddress);
+            System.out.println("Notification email sent to:" + psychologistAddress);
 
         }catch (MessagingException exception) {
-            exception.printStackTrace();
+            System.out.println("Email não enviado");
         }
     }
 }

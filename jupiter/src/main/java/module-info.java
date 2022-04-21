@@ -3,8 +3,8 @@ module dev.netho.jupiter {
     requires javafx.fxml;
     requires java.sql;
     requires mail;
+    requires itextpdf;
 
-    opens dev.netho.jupiter to javafx.fxml;
     exports dev.netho.jupiter;
     exports dev.netho.jupiter.services;
     exports dev.netho.jupiter.models;

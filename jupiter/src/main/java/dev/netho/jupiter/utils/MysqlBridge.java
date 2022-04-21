@@ -11,7 +11,7 @@ public class MysqlBridge {
     private static String URL_DB = "//wagnerweinert.com.br:3306/";
     private static String DB_NAME = "info21_angelo";
     private static String USERNAME = "info21_angelo";
-    private static String PASSWORD = "";
+    private static String PASSWORD = "Comprar123!";
 
     private static String CON_STRING="jdbc:mysql:"+URL_DB+DB_NAME;
 
