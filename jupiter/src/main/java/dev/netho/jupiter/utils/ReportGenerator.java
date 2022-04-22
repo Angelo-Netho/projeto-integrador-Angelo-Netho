@@ -10,8 +10,6 @@ import dev.netho.jupiter.models.Psychologist;
 
 import java.io.FileOutputStream;
 import java.time.LocalDateTime;
-import java.time.format.TextStyle;
-import java.util.Locale;
 
 public class ReportGenerator {
 
@@ -60,30 +58,6 @@ public class ReportGenerator {
         Diary diary = patient.getDiaries().get(size-1);
         LocalDateTime time = diary.getReceive();
 
-        Locale BRAZIL = new Locale("pt", "BR");
-
-        String month = time.getMonth().getDisplayName(TextStyle.SHORT, BRAZIL);
-
-        String minute;
-        String hour;
-
-        if(time.getMinute() == 0) {
-            minute = "00";
-        }else {
-            minute = time.getMinute() + "";
-        }
-
-        if(time.getHour() == 0) {
-            hour = "00";
-        }else {
-            hour = time.getHour() + "";
-        }
-
-        String hourMinute = hour + ":" + minute;
-
-        String received = time.getDayOfMonth() + " de " + month + " de " + time.getYear() + " " +
-                hourMinute + " (" + diary + ")";
-
-        return received;
+        return new TimeStampGenerator().generateString(time, TimeStampStyle.LONG);
     }
 }

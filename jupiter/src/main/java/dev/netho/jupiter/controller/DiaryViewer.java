@@ -2,17 +2,14 @@ package dev.netho.jupiter.controller;
 
 import dev.netho.jupiter.models.Diary;
 import dev.netho.jupiter.models.Patient;
+import dev.netho.jupiter.utils.TimeStampGenerator;
+import dev.netho.jupiter.utils.TimeStampStyle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-
-import java.time.LocalDateTime;
-import java.time.format.TextStyle;
-import java.util.Locale;
 
 public class DiaryViewer {
 
@@ -48,7 +45,7 @@ public class DiaryViewer {
     }
 
     @FXML
-    public void loadProfileEditor(MouseEvent event) {
+    public void loadProfileEditor() {
         homePsychologist.loadPatientProfile(patient);
     }
 
@@ -64,32 +61,7 @@ public class DiaryViewer {
     }
 
     private void loadReceived() {
-        LocalDateTime time = diary.getReceive();
-
-        Locale BRAZIL = new Locale("pt", "BR");
-
-        String month = time.getMonth().getDisplayName(TextStyle.SHORT, BRAZIL);
-
-        String minute;
-        String hour;
-
-        if(time.getMinute() == 0) {
-            minute = "00";
-        }else {
-            minute = time.getMinute() + "";
-        }
-
-        if(time.getHour() == 0) {
-            hour = "00";
-        }else {
-            hour = time.getHour() + "";
-        }
-
-        String hourMinute = hour + ":" + minute;
-
-        String received = time.getDayOfMonth() + " de " + month + " de " + time.getYear() + " " +
-                hourMinute + " (" + diary + ")";
-
+        String received = new TimeStampGenerator().generateString(diary.getReceive(), TimeStampStyle.LONG);
         lblReceive.setText(received);
     }
 
