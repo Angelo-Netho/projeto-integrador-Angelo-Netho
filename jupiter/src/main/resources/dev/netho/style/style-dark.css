@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+@font-face {
+    -fx-font-family: 'Source Code Pro', sans-serif;
+}
+
+.root {
+    -fx-background-color: black;
+}
+
+.label {
+    -fx-font-family: 'Source Code Pro', sans-serif;
+    -fx-font-size: 15px;
+    -fx-text-fill: white;
+}
+
+.label-text-field {
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-font-weight: 400;
+    -fx-alignment: bottom-left;
+}
+
+#label-dashboard {
+    -fx-font-family: 'Montserrat', sans-serif;
+    -fx-font-size: 14px;
+    -fx-alignment: baseline-left;
+    -fx-text-fill: white;
+}
+
+.label-header {
+    -fx-font-family: 'Montserrat', sans-serif;
+    -fx-font-size: 20px;
+    -fx-padding: 10;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.text-field {
+    -fx-background-radius: 15px;
+    -fx-pref-height: 50;
+    -fx-pref-width: 300;
+    -fx-font-family: 'Source Code Pro', sans-serif;
+    -fx-padding: 7px;
+    -fx-text-fill: white;
+    -fx-font-weight: 600;
+    -fx-background-color: #D5D5D5;
+}
+
+.text-field:hover, text-field:selected {
+    -fx-background-color: #b4b3b3;
+}
+
+.text-field:focused {
+    -fx-background-color: #b4b3b3;
+}
+
+.button {
+    -fx-cursor: hand;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+
+    -fx-background-color: violet;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+    -fx-pref-width: 150;
+    -fx-pref-height: 50;
+    -fx-alignment: center;
+}
+
+.button:hover {
+    -fx-background-color: #f35ef3;
+}
+
+#btnCancel {
+    -fx-background-color: silver;
+    -fx-text-fill: gray;
+}
+
+#btnCancel:hover {
+    -fx-background-color: #afaeae;
+}
+
+#login-button {
+    -fx-pref-width: 75px;
+    -fx-pref-height: 75px;
+    -fx-background-radius: 20px;
+    -fx-background-color: gray;
+
+    -fx-border-color: silver;
+    -fx-border-radius: 20px;
+    -fx-cursor: hand;
+
+    -fx-background-image: url("../images/arrow_forward_black.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#login-button:hover {
+    -fx-background-color: cornflowerblue;
+}
+
+#login-button:pressed {
+    -fx-background-color: royalblue;
+}
+
+
+.check-box {
+    -fx-padding: 0px 0px 10px 0px;
+    -fx-font-family: 'Source Code Pro', sans-serif;
+    -fx-font-size: 12px;
+    -fx-text-fill: dimgrey;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+
+.check-box:selected .box {
+    -fx-background-color: royalblue;
+}
+
+.hyperlink {
+    -fx-font-family: 'Source Code Pro', sans-serif;
+    -fx-text-fill: dimgrey;
+    -fx-font-size: 10px;
+    -fx-padding: 20px;
+    -fx-font-weight: 900;
+}
+
+#btnGenerateReport {
+    -fx-pref-height: 150;
+    -fx-pref-width: 200;
+    -fx-border-radius: 15;
+    -fx-wrap-text: true;
+    -fx-background-radius: 15;
+    -fx-text-alignment: center;
+    -fx-background-color: linear-gradient(to bottom right, #4568dc, #b06ab3);
+}
+
+#btnWriteDiary, #btnMyPatients {
+    -fx-pref-height: 150;
+    -fx-pref-width: 200;
+    -fx-border-radius: 15;
+    -fx-wrap-text: true;
+    -fx-background-radius: 15;
+    -fx-text-alignment: justify;
+    -fx-background-color: linear-gradient(to bottom right, #eecda3, #ef629f);
+}
+
+#profilePic {
+    -fx-cursor: hand;
+}
+

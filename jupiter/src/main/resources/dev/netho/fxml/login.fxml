@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:id="root"
+          fx:controller="dev.netho.jupiter.controller.Login"
+          stylesheets="@../style/style-default.css"
+          prefHeight="200" prefWidth="224" alignment="CENTER" hgap="10" vgap="10">
+
+    <padding>
+        <Insets topRightBottomLeft="8.0"/>
+    </padding>
+
+    <Label text="Iniciar sessão"
+           GridPane.columnIndex="0" GridPane.rowIndex="0"
+           GridPane.halignment="CENTER" styleClass="label-header"/>
+
+    <Label text="Email" labelFor="$tfEmail"  id="label-text-field" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <TextField fx:id="tfEmail" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+
+    <Label text="Senha" labelFor="$tfPassword" id="label-text-field" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+    <PasswordField fx:id="tfPassword" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+
+    <CheckBox fx:id="cbRemember" text="Lembrar minha conta" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+
+    <Button fx:id="btConfirm" id="login-button" onAction="#validateLogin" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.halignment="CENTER"/>
+
+    <Hyperlink fx:id="hlHelp" text="NÃO CONSEGUE FAZER LOGIN?" GridPane.columnIndex="0" GridPane.rowIndex="7" GridPane.halignment="CENTER"/>
+
+</GridPane>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="dev.netho.jupiter.controller.RegisterPatient"
+      stylesheets="@../style/style-default.css"
+      prefHeight="400.0" prefWidth="600.0">
+
+    <padding>
+        <Insets topRightBottomLeft="8.0"/>
+    </padding>
+
+    <VBox spacing="20.0">
+
+        <VBox>
+            <Label text="Nome" labelFor="$tfName" id="label-text-field"/>
+            <TextField fx:id="tfName"/>
+        </VBox>
+
+        <VBox>
+            <Label text="Email" labelFor="$tfEmail" id="label-text-field"/>
+            <TextField fx:id="tfEmail"/>
+        </VBox>
+
+        <VBox>
+            <Label text="Data de nascimento" labelFor="$dpBirthday" id="label-text-field"/>
+            <DatePicker fx:id="dpBirthday" styleClass="text-field"/>
+        </VBox>
+
+        <VBox>
+            <Label text="Telefone (opcional)" labelFor="$tfPhone" id="label-text-field"/>
+            <TextField fx:id="tfPhone"/>
+        </VBox>
+
+        <VBox>
+            <Label text="Gênero (opcional)" labelFor="$tfGender" id="label-text-field"/>
+            <TextField fx:id="tfGender"/>
+        </VBox>
+
+        <VBox>
+            <Label text="Foto de Perfil (URL) (opcional)" labelFor="$tfImage" id="label-text-field"/>
+            <TextField fx:id="tfImage"/>
+        </VBox>
+
+        <VBox>
+            <Label text="Senha" labelFor="$tfPassword" id="label-text-field"/>
+            <PasswordField fx:id="tfPassword"/>
+        </VBox>
+
+        <HBox spacing="15">
+            <Button onAction="#sendForm" text="Adicionar"/>
+            <Button onAction="#clear" text="Limpar" id="btnCancel" />
+        </HBox>
+
+        <HBox.margin>
+            <Insets left="132.0" top="35.0"/>
+        </HBox.margin>
+    </VBox>
+
+</HBox>

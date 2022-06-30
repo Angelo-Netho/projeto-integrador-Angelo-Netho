@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="dev.netho.jupiter.controller.DiaryEditor"
+      prefHeight="400.0" prefWidth="600.0">
+
+    <padding>
+        <Insets topRightBottomLeft="18.0"/>
+    </padding>
+
+    <Label text="Numa escala de 1 á 10 &#xD;Qual o nível da sua dor?"/>
+    <TextField fx:id="tfMood"/>
+
+    <TextArea fx:id="taContent"/>
+
+    <HBox>
+        <padding>
+            <Insets topRightBottomLeft="8.0"/>
+        </padding>
+
+        <Region HBox.Hgrow="ALWAYS" />
+        <Button fx:id="btSend" onAction="#sendForm" text="Adicionar"/>
+        <Button fx:id="btClear" onAction="#clear" text="Limpar" id="btnCancel" />
+    </HBox>
+</VBox>

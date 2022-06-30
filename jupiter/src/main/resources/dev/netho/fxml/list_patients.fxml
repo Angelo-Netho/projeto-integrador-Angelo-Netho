@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="dev.netho.jupiter.controller.ListPatients"
+      stylesheets="@../style/style-default.css"
+      prefHeight="400.0" prefWidth="600.0">
+
+    <padding>
+        <Insets topRightBottomLeft="18.0"/>
+    </padding>
+
+    <TextField promptText="Buscar paciente" fx:id="tfSearch" onKeyTyped="#updateList"/>
+
+    <Label text="Use clique duplo para abrir os registros de um paciente"/>
+
+    <ListView fx:id="lvPatients" onMouseClicked="#loadDiaries"/>
+
+    <HBox spacing="7">
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Adicionar" fx:id="btnAddPatient" onAction="#addPatient"/>
+        <Button text="Editar" fx:id="btnEditPatient" onAction="#editPatient"/>
+        <Button text="Desativar" fx:id="btnDeletePatient" onAction="#deletePatient"/>
+    </HBox>
+
+
+</VBox>

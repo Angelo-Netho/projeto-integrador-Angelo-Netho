@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.shape.Circle?>
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="dev.netho.jupiter.controller.DiaryViewer"
+      prefHeight="400.0" prefWidth="600.0">
+
+    <padding>
+        <Insets topRightBottomLeft="18.0"/>
+    </padding>
+
+    <HBox>
+
+        <padding>
+            <Insets topRightBottomLeft="8.0"/>
+        </padding>
+
+        <Circle fx:id="cImage" radius="25" onMouseClicked="#loadProfileEditor" id="profilePic"/>
+        <Region HBox.Hgrow="ALWAYS" />
+        <Label fx:id="lblReceive" text="seg, 18 de abr. 19:17 (há 1 dia)"/>
+    </HBox>
+    <TextArea fx:id="taContent" editable="false"/>
+    <Label fx:id="lblMood" text="Como estou me sentindo: 10"/>
+
+
+
+
+
+</VBox>
